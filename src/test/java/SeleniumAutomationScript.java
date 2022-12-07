@@ -10,29 +10,24 @@ public class SeleniumAutomationScript {
 
     @Test
     public void login() throws InterruptedException {
-        //przygotowanie
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
-        //inicjalizacja  Drivera
         WebDriver driver = new ChromeDriver(options);
-        //otwieram konkretną stronę
         driver.get("https://aleksandrafujakfotografia.mypixieset.com/contact/");
 
         WebElement name = driver.findElement(By.id("name-L0VQOz"));
         name.sendKeys("Aleksandra");
-//        driver.findElement(By.xpath("//[@id='e-mail-9P1K3n']")); lub dodaję .var + tab i wychodzi:
+//        driver.findElement(By.xpath("//[@id='e-mail-9P1K3n']")); lub dodaję .var + tab:
         WebElement email = driver.findElement(By.xpath("//*[@id='e-mail-9P1K3n']"));
         email.sendKeys("fujak.aleksandra@gmail.com");
 //        WebElement message = driver.findElement(By.cssSelector("#message-1lQn49"));
 //        message.sendKeys("Poproszę ofertę na reportaż ślubny.");
 
         name.clear();
-        //inna opcja
         driver.findElement(By.cssSelector("#message-1lQn49")).sendKeys("Poproszę ofertę na reportaż ślubny.");
 
         Thread.sleep(3000);
-        //zamknięcie Drivera
         driver.quit();
     }
 }
