@@ -27,7 +27,6 @@ public class SeleniumAutomationScript {
         name.clear();
         driver.findElement(By.cssSelector("#message-1lQn49")).sendKeys("Poproszę ofertę na reportaż ślubny.");
 
-        Thread.sleep(3000);
         driver.quit();
     }
 }
